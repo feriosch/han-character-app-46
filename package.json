@@ -19,12 +19,14 @@
     "dotenv": "^16.0.2",
     "expo": "~46.0.9",
     "expo-constants": "~13.2.3",
+    "expo-draw": "git+https://github.com/MarangoniEduardo/expo-draw",
     "expo-font": "^10.2.0",
     "expo-splash-screen": "~0.16.1",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
     "react-native": "0.69.5",
-    "react-native-gesture-handler": "~2.5.0"
+    "react-native-gesture-handler": "~2.5.0",
+    "react-native-svg": "12.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
