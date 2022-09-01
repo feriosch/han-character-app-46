@@ -16,6 +16,7 @@
     "@react-native-community/slider": "4.2.3",
     "@react-native-picker/picker": "2.4.2",
     "babel-plugin-import": "^1.13.5",
+    "dotenv": "^16.0.2",
     "expo": "~46.0.9",
     "expo-constants": "~13.2.3",
     "expo-font": "^10.2.0",
