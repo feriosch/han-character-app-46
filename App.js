@@ -1,9 +1,11 @@
-import React from 'react';
-import { AppLoading } from "expo";
+import React from "react";
+import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { Provider as AntDProvider } from "@ant-design/react-native";
 
 import MainView from "./views/main";
+
+SplashScreen.preventAutoHideAsync();
 
 class App extends React.Component {
   state = {
@@ -30,12 +32,14 @@ class App extends React.Component {
     );
     // eslint-disable-next-line
     this.setState({ isReady: true });
+
+    await SplashScreen.hideAsync();
   }
 
   render() {
     const { theme, currentTheme, isReady } = this.state;
     if (!isReady) {
-      return <></>;
+      return null;
     }
     return (
       <AntDProvider theme={theme}>
