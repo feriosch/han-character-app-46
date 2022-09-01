@@ -9,10 +9,20 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@ant-design/icons-react-native": "^2.3.2",
+    "@ant-design/react-native": "^5.0.1",
+    "@react-native-community/cameraroll": "^4.1.2",
+    "@react-native-community/segmented-control": "^2.2.2",
+    "@react-native-community/slider": "4.2.3",
+    "@react-native-picker/picker": "2.4.2",
+    "babel-plugin-import": "^1.13.5",
     "expo": "~46.0.9",
+    "expo-constants": "~13.2.3",
+    "expo-font": "^10.2.0",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
-    "react-native": "0.69.5"
+    "react-native": "0.69.5",
+    "react-native-gesture-handler": "~2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
