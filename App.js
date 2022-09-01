@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import { Provider as AntDProvider } from "@ant-design/react-native";
 
+import { LOGIN } from "./store/auth";
 import MainView from "./views/main";
 
 SplashScreen.preventAutoHideAsync();
@@ -31,6 +32,9 @@ class App extends React.Component {
       require("@ant-design/icons-react-native/fonts/antfill.ttf")
     );
     // eslint-disable-next-line
+
+    await LOGIN();
+
     this.setState({ isReady: true });
 
     await SplashScreen.hideAsync();
