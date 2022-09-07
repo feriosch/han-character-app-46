@@ -20,6 +20,7 @@
     "babel-plugin-import": "^1.13.5",
     "dotenv": "^16.0.2",
     "expo": "~46.0.9",
+    "expo-av": "~12.0.4",
     "expo-constants": "~13.2.3",
     "expo-draw": "git+https://github.com/MarangoniEduardo/expo-draw",
     "expo-font": "^10.2.0",

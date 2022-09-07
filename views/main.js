@@ -5,31 +5,43 @@ import { Button, Icon, WhiteSpace } from "@ant-design/react-native";
 import { DEVICE_HEIGHT, STATUS_BAR_HEIGHT } from "../dimensions";
 import Canvas from "../components/canvas";
 import ResultsView from "./results";
+import InfoView from "./info";
 
 const MainView = () => {
   const [isLoadingResults, setIsLoadingResults] = useState(false);
   const [results, setResults] = useState(null);
+  const [selectedKanji, setSelectedKanji] = useState(null);
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>Han characters</Text>
-        <Button>
-          <Icon name="book" color="black" />
-        </Button>
+  if (selectedKanji === null) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>Han characters</Text>
+          <Button>
+            <Icon name="book" color="black" />
+          </Button>
+        </View>
+        <View style={styles.canvasContainer}>
+          <Canvas
+            setIsLoadingResults={setIsLoadingResults}
+            setResults={setResults}
+          />
+        </View>
+        <WhiteSpace />
+        <View style={styles.resultsContainer}>
+          <ResultsView
+            isLoadingResults={isLoadingResults}
+            results={results}
+            setSelectedKanji={setSelectedKanji}
+          />
+        </View>
       </View>
-      <View style={styles.canvasContainer}>
-        <Canvas
-          setIsLoadingResults={setIsLoadingResults}
-          setResults={setResults}
-        />
-      </View>
-      <WhiteSpace />
-      <View style={styles.resultsContainer}>
-        <ResultsView isLoadingResults={isLoadingResults} results={results} />
-      </View>
-    </View>
-  );
+    );
+  } else {
+    return (
+      <InfoView kanji={selectedKanji} setSelectedKanji={setSelectedKanji} />
+    );
+  }
 };
 
 const styles = StyleSheet.create({

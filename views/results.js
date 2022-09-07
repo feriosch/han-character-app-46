@@ -5,7 +5,7 @@ import { ActivityIndicator, WhiteSpace } from "@ant-design/react-native";
 import { DEVICE_HEIGHT } from "../dimensions";
 import ResultCell from "../components/cell";
 
-const ResultsView = ({ isLoadingResults, results }) => {
+const ResultsView = ({ isLoadingResults, results, setSelectedKanji }) => {
   const resultsCellsList = [];
 
   if (results !== null) {
@@ -14,6 +14,7 @@ const ResultsView = ({ isLoadingResults, results }) => {
         <ResultCell
           kanji={result}
           key={index}
+          setSelectedKanji={setSelectedKanji}
         />
       );
     });
