@@ -23,7 +23,7 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
       result: "base64",
       quality: 1,
       height: 48,
-      width: 48
+      width: 48,
     });
 
     setIsLoadingResults(true);
@@ -36,8 +36,6 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
         config
       )
       .then((response) => {
-        console.log(image)
-        console.log(response.data)
         setResults(response.data.prediction);
       })
       .catch((error) => console.log(JSON.stringify(error)))
