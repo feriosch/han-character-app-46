@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Button, Icon, WhiteSpace } from "@ant-design/react-native";
 
 import { DEVICE_HEIGHT, STATUS_BAR_HEIGHT } from "../dimensions";
 import Canvas from "../components/canvas";
+import ResultsView from "./results";
 
 const MainView = () => {
+  const [isLoadingResults, setIsLoadingResults] = useState(false);
+  const [results, setResults] = useState(null);
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -15,11 +19,14 @@ const MainView = () => {
         </Button>
       </View>
       <View style={styles.canvasContainer}>
-        <Canvas />
+        <Canvas
+          setIsLoadingResults={setIsLoadingResults}
+          setResults={setResults}
+        />
       </View>
       <WhiteSpace />
       <View style={styles.resultsContainer}>
-        <Text>Results...</Text>
+        <ResultsView isLoadingResults={isLoadingResults} results={results} />
       </View>
     </View>
   );

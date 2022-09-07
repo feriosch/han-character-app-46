@@ -1,12 +1,48 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import axios from "axios";
 import { Button, Icon, WhiteSpace, WingBlank } from "@ant-design/react-native";
 import ExpoDraw from "expo-draw";
+import { captureRef } from "react-native-view-shot";
 
 import { DEVICE_WIDTH } from "../dimensions";
+import { GET_TOKEN } from "../store/auth";
+import { CHARACTER_URL } from "../store/config";
 
-const Canvas = () => {
+const Canvas = ({ setIsLoadingResults, setResults }) => {
   let drawRef;
+
+  const postImage = async () => {
+    const token = await GET_TOKEN();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const image = await captureRef(drawRef, {
+      result: "base64",
+      quality: 1,
+      height: 48,
+      width: 48
+    });
+
+    setIsLoadingResults(true);
+    axios
+      .post(
+        CHARACTER_URL,
+        {
+          "image-base64": image,
+        },
+        config
+      )
+      .then((response) => {
+        console.log(image)
+        console.log(response.data)
+        setResults(response.data.prediction);
+      })
+      .catch((error) => console.log(JSON.stringify(error)))
+      .finally(() => setIsLoadingResults(false));
+  };
 
   return (
     <>
